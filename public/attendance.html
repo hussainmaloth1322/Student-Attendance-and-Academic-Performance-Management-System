@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance | Student Attendance</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="topbar">
+
+        <div>
+            <span class="brand-mark">SA</span>
+
+            <div>
+                <h1>Student Attendance</h1>
+                <p>Management Dashboard</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="students.html">Students</a>
+            <a class="active" href="attendance.html">Attendance</a>
+            <a href="marks.html">Enter Marks</a>
+            <a href="reports.html">Reports</a>
+        </nav>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Page Title -->
+        <div class="page-title">
+
+            <div>
+                <p class="eyebrow">DAILY RECORDS</p>
+
+                <h2>Mark attendance</h2>
+
+                <p>
+                    Select a date, set each period, and save the records.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Attendance Panel -->
+        <section class="panel">
+
+            <!-- Toolbar -->
+            <div class="toolbar">
+
+                <label>
+                    Attendance date
+
+                    <input
+                        type="date"
+                        id="attendanceDate"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Branch
+
+                    <select id="attendanceBranch">
+                        <option value="">All branches</option>
+                    </select>
+                </label>
+
+                <!-- Attendance Actions -->
+                <div class="toolbar-actions">
+
+                    <button
+                        class="button secondary"
+                        id="allPresent"
+                        type="button"
+                    >
+                        Mark all present
+                    </button>
+
+                    <button
+                        class="button secondary"
+                        id="allAbsent"
+                        type="button"
+                    >
+                        Mark all absent
+                    </button>
+
+                    <button
+                        class="button primary"
+                        id="saveAttendance"
+                        type="button"
+                    >
+                        Save attendance
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Instructions -->
+            <p class="hint">
+                Choose Present or Absent for each period.
+                Blank periods are not saved.
+            </p>
+
+            <!-- Status Message -->
+            <p
+                id="message"
+                class="message"
+                role="status"
+            ></p>
+
+            <!-- Attendance Table -->
+            <div class="table-wrap">
+
+                <table class="attendance-table">
+
+                    <thead id="attendanceHead"></thead>
+
+                    <tbody id="attendanceBody"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        Student Attendance Management System · DevOps Lab Project
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="attendance.js"></script>
+
+</body>
+</html>

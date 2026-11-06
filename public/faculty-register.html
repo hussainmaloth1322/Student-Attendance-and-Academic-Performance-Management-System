@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div>
+        <span class="brand-mark">SA</span>
+        <div>
+            <h1>Student Attendance</h1>
+            <p>Faculty Portal</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a class="active" href="faculty-register.html">Register</a>
+        <a href="faculty-login.html">Login</a>
+    </nav>
+</header>
+
+<main class="container login-container">
+    <section class="panel login-panel">
+
+        <div class="page-title">
+            <div>
+                <p class="eyebrow">CREATE ACCOUNT</p>
+                <h2>Faculty Registration</h2>
+                <p>Register to manage student academic records.</p>
+            </div>
+        </div>
+
+        <form id="registerForm" class="login-form">
+
+            <label>
+                Faculty Name
+                <input type="text" id="name"
+                       placeholder="Enter faculty name" required>
+            </label>
+
+            <label>
+                Email
+                <input type="email" id="email"
+                       placeholder="Enter email address" required>
+            </label>
+
+            <label>
+                Department
+                <select id="department" required>
+                    <option value="">Select Department</option>
+                    <option value="CSE">CSE</option>
+                    <option value="AI&ML">AI & ML</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="IT">IT</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
+                </select>
+            </label>
+
+            <label>
+                Password (minimum 8 characters)
+                <input type="password" id="password"
+                       minlength="8" required>
+            </label>
+
+            <button class="button primary" type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <p id="message" class="message" role="status"></p>
+
+        <p class="hint">
+            Already registered?
+            <a href="faculty-login.html">Login here</a>
+        </p>
+
+    </section>
+</main>
+
+<footer>
+    Student Attendance Management System
+</footer>
+
+<script src="faculty-register.js"></script>
+</body>
+</html>

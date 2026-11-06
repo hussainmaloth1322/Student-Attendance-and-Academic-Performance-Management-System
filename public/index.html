@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Attendance System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="topbar">
+
+        <div>
+            <span class="brand-mark">SA</span>
+
+            <div>
+                <h1>Student Attendance</h1>
+                <p>Management Dashboard</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <a class="active" href="index.html">Dashboard</a>
+            <a href="students.html">Students</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="marks.html">Enter Marks</a>
+            <a href="reports.html">Reports</a>
+            <a href="faculty-login.html">Sign in</a>
+        </nav>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div>
+                <p class="eyebrow">ACADEMIC MANAGEMENT</p>
+                
+
+                <h2>Attendance made simple.</h2>
+
+                <p>
+                    Faculty can manage branch-wise students, attendance,
+                    internal marks and performance reports.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button primary" href="attendance.html">
+                        Mark Attendance
+                    </a>
+
+                    <a class="button secondary" href="reports.html">
+                        View Reports
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Illustration -->
+            <div class="hero-art" aria-hidden="true">
+
+                <div class="art-card">
+                    <span>✓</span>
+                    <strong>Daily records</strong>
+                    <small>Organized and easy to review</small>
+                </div>
+
+                <div class="art-card second">
+                    <span>％</span>
+                    <strong>Monthly insights</strong>
+                    <small>Track attendance percentage</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats">
+
+            <article class="stat-card">
+                <span>Total students</span>
+                <strong id="studentCount">—</strong>
+                <small>Registered students</small>
+            </article>
+
+            <article class="stat-card">
+                <span>Periods per day</span>
+                <strong>7</strong>
+                <small>Attendance slots</small>
+            </article>
+
+            <article class="stat-card">
+                <span>Attendance date</span>
+                <strong id="todayDate">—</strong>
+                <small>Local date</small>
+            </article>
+
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Quick actions</h3>
+                    <p>Choose a task to continue.</p>
+                </div>
+            </div>
+
+            <div class="quick-grid">
+
+                <a class="quick-link" href="faculty-register.html">
+                    <span>00</span>
+
+                    <div>
+                        <strong>Faculty registration</strong>
+                        <small>Create a faculty account.</small>
+                    </div>
+
+                    <b>→</b>
+                </a>
+
+                <a class="quick-link" href="faculty-login.html">
+                    <span>01</span>
+
+                    <div>
+                        <strong>Faculty login</strong>
+                        <small>Sign in to manage all records.</small>
+                    </div>
+
+                    <b>→</b>
+                </a>
+
+                <a class="quick-link" href="marks.html">
+                    <span>04</span>
+
+                    <div>
+                        <strong>Enter marks</strong>
+                        <small>Record subject-wise marks by branch.</small>
+                    </div>
+
+                    <b>→</b>
+                </a>
+
+                <a class="quick-link" href="students.html">
+                    <span>01</span>
+
+                    <div>
+                        <strong>Manage students</strong>
+                        <small>Add, edit or remove student records.</small>
+                    </div>
+
+                    <b>→</b>
+                </a>
+
+                <a class="quick-link" href="attendance.html">
+                    <span>02</span>
+
+                    <div>
+                        <strong>Daily attendance</strong>
+                        <small>Mark and save each period.</small>
+                    </div>
+
+                    <b>→</b>
+                </a>
+
+                <a class="quick-link" href="reports.html">
+                    <span>03</span>
+
+                    <div>
+                        <strong>Monthly reports</strong>
+                        <small>Review totals and export CSV.</small>
+                    </div>
+
+                    <b>→</b>
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Status Message -->
+        <p id="message" class="message" role="status"></p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        Student Attendance Management System · DevOps Lab Project
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
