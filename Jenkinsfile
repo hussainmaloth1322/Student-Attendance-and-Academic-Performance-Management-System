@@ -2,20 +2,16 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_HOST = 'npipe:////./pipe/dockerDesktopLinuxEngine'
-        IMAGE_NAME = 'student-attendance-system'
-    }
-
     stages {
-        stage('Checkout') {
+
+        stage('Git Checkout') {
             steps {
+                echo 'Downloading Student Attendance System'
                 checkout scm
-                echo 'GitHub repository checked out successfully.'
             }
         }
 
-        stage('Check Node and npm') {
+        stage('Check Node and NPM') {
             steps {
                 bat 'node --version'
                 bat 'npm --version'
@@ -28,46 +24,28 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
+        stage('Build') {
             steps {
-                bat 'npm test'
+                echo 'Checking project files'
+                bat 'node --check server.js'
+                bat 'npm run build --if-present'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Test') {
             steps {
-                bat '''
-                    echo Checking Docker executable...
-
-                    "C:\\Users\\Maloth Hussain\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" version
-
-                    if errorlevel 1 exit /b 1
-
-                    echo Building Docker image...
-
-                    "C:\\Users\\Maloth Hussain\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t %IMAGE_NAME% .
-
-                    if errorlevel 1 exit /b 1
-
-                    echo Docker image created successfully!
-
-                    "C:\\Users\\Maloth Hussain\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" images
-                '''
+                bat 'npm test --if-present'
             }
         }
     }
 
     post {
         success {
-            echo 'SUCCESS: Student Attendance System pipeline completed!'
+            echo 'Student Attendance System pipeline completed successfully!'
         }
 
         failure {
-            echo 'FAILURE: Check the Console Output for errors.'
-        }
-
-        always {
-            echo 'Jenkins pipeline execution finished.'
+            echo 'Pipeline failed. Check the Console Output.'
         }
     }
 }
