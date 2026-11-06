@@ -2,15 +2,16 @@
 pipeline {
     agent any
 
-    options {
-        timestamps()
-        timeout(time: 20, unit: 'MINUTES')
+    environment {
+        DOCKER_HOST = 'npipe:////./pipe/dockerDesktopLinuxEngine'
+        IMAGE_NAME = 'student-attendance-system'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
+                echo 'GitHub repository checked out successfully.'
             }
         }
 
@@ -23,7 +24,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'if exist package-lock.json (npm ci) else (npm install)'
+                bat 'npm ci'
             }
         }
 
@@ -32,14 +33,41 @@ pipeline {
                 bat 'npm test'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                bat '''
+                    echo Checking Docker executable...
+
+                    "C:\\Users\\Maloth Hussain\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" version
+
+                    if errorlevel 1 exit /b 1
+
+                    echo Building Docker image...
+
+                    "C:\\Users\\Maloth Hussain\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t %IMAGE_NAME% .
+
+                    if errorlevel 1 exit /b 1
+
+                    echo Docker image created successfully!
+
+                    "C:\\Users\\Maloth Hussain\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" images
+                '''
+            }
+        }
     }
 
     post {
         success {
-            echo 'Student Attendance System build successful!'
+            echo 'SUCCESS: Student Attendance System pipeline completed!'
         }
+
         failure {
-            echo 'Build failed. Check Console Output.'
+            echo 'FAILURE: Check the Console Output for errors.'
+        }
+
+        always {
+            echo 'Jenkins pipeline execution finished.'
         }
     }
 }
